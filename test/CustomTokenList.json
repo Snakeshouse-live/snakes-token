@@ -10,8 +10,8 @@
     {
       "chainId": 8453,
       "address": "0xbF70666e981EdA72Eea7632cD5FBa222Da3AE3cA",
-      "symbol": "SNAKESTEST",
-      "name": "Blue Snakes Test",
+      "symbol": "ANDY",
+      "name": "Hello Andy",
       "decimals": 18,
       "logoURI": "https://bscscan.com/token/images/xraders_32.png"
     }
