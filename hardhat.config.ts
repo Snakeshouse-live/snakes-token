@@ -3,7 +3,7 @@ import "@nomicfoundation/hardhat-toolbox";
 
 require(`dotenv`).config();
 
-const { DEVNET_PRIVKEY, BSCSCAN_API_KEY } = process.env;
+const { DEVNET_PRIVKEY, BSCSCAN_API_KEY, BASESCAN_API_KEY } = process.env;
 
 const config: HardhatUserConfig = {
   defaultNetwork: "bnbt",
@@ -11,6 +11,8 @@ const config: HardhatUserConfig = {
     apiKey: {
       bsc: BSCSCAN_API_KEY as string,
       bnbt: BSCSCAN_API_KEY as string,
+      base: BASESCAN_API_KEY as string,
+      baset: BASESCAN_API_KEY as string,
     },
     customChains: [
       {
@@ -19,6 +21,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: process.env.BSCSCAN_API_URL as any,
           browserURL: process.env.BSCSCAN_BROWSER_URL as any,
+        },
+      },
+      {
+        network: "baset",
+        chainId: 84532,
+        urls: {
+          apiURL: process.env.BASESCAN_API_URL as any,
+          browserURL: process.env.BASESCAN_BROWSER_URL as any,
         },
       },
     ],
@@ -41,6 +51,14 @@ const config: HardhatUserConfig = {
     },
     bnbt: {
       url: process.env.L1RPC_BSCTEST,
+      accounts: [`0x${DEVNET_PRIVKEY}`],
+    },
+    base: {
+      url: process.env.BASE_MAIN_RPC_URL,
+      accounts: [`0x${DEVNET_PRIVKEY}`],
+    },
+    baset: {
+      url: process.env.BASE_SEPOLIA_RPC_URL,
       accounts: [`0x${DEVNET_PRIVKEY}`],
     },
   },

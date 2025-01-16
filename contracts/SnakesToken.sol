@@ -18,8 +18,8 @@ contract SnakesToken is ERC20, ERC20Burnable, ERC20Permit, ERC20Votes, Ownable {
     constructor(
         address initialOwner
     )
-        ERC20("Snakeshouse", "SNAKES")
-        ERC20Permit("Snakeshouse")
+        ERC20("Blue Snakes", "SNAKES")
+        ERC20Permit("Blue Snakes")
         Ownable(initialOwner)
     {
         _mint(msg.sender, 1000000000 * 10 ** decimals()); // 1,000,000,000 tokens
@@ -27,10 +27,7 @@ contract SnakesToken is ERC20, ERC20Burnable, ERC20Permit, ERC20Votes, Ownable {
 
     // Modifier to check if account is frozen
     modifier notFrozen(address account) {
-        require(
-            !_frozenAccounts[account],
-            "SnakeshouseToken: Account is frozen"
-        );
+        require(!_frozenAccounts[account], "Blue Snakes: Account is frozen");
         _;
     }
 
@@ -61,13 +58,13 @@ contract SnakesToken is ERC20, ERC20Burnable, ERC20Permit, ERC20Votes, Ownable {
         if (from != address(0)) {
             require(
                 !_frozenAccounts[from],
-                "SnakeshouseToken: Sender account is frozen"
+                "Blue Snakes: Sender account is frozen"
             );
         }
         if (to != address(0)) {
             require(
                 !_frozenAccounts[to],
-                "SnakeshouseToken: Recipient account is frozen"
+                "Blue Snakes: Recipient account is frozen"
             );
         }
         // Call parent update logic
